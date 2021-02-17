@@ -1,0 +1,3 @@
+#SAM build and deploy
+bucket="`echo IGA-2 | tr 'A-Z' 'a-z'`"
+sam build && sam deploy --stack-name "IGA-2" --parameter-overrides "ParameterKey=project_name,ParameterValue=IGA-2,ParameterKey=aws_region,ParameterValue=ap-southeast-2,ParameterKey=function_name,ParameterValue=IGS-lambda-test" --s3-bucket "bucket-$bucket" --s3-prefix "IGA-2" --region "ap-southeast-2" --capabilities "CAPABILITY_IAM" --no-confirm-changeset
